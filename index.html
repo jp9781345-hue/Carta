@@ -24,6 +24,24 @@ body {
   overflow: hidden;
 }
 
+/* TEXTO DE INSTRUÇÃO */
+#hint {
+  text-align: center;
+  margin-bottom: 18px;
+  animation: pulse 2s infinite;
+  color: #ffeaea;
+}
+
+#hint span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#arrow {
+  font-size: 28px;
+  margin-top: 6px;
+}
+
 /* CARTA FECHADA */
 #envelope {
   width: 260px;
@@ -35,6 +53,135 @@ body {
   font-size: 46px;
   cursor: pointer;
   box-shadow: 0 12px 30px rgba(0,0,0,.4);
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulse {
+  0% { opacity: .4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(6px); }
+  100% { opacity: .4; transform: translateY(0); }
+}
+
+/* CARTA ABERTA */
+#letter {
+  position: fixed;
+  inset: 0;
+  background: #fffaf2;
+  padding: 30px 20px;
+  display: none;
+  overflow-y: auto;
+}
+
+#letterContent {
+  max-width: 520px;
+  margin: auto;
+  text-align: center;
+  animation: fade 1.5s ease;
+}
+
+/* DECORAÇÕES */
+.decoration-top {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.decoration-bottom {
+  font-size: 26px;
+  margin-top: 20px;
+}
+
+/* TEXTO */
+.phrase {
+  font-size: 22px;
+  font-weight: bold;
+  color: #b22222;
+  margin: 25px 0;
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.7;
+  color: #5a0000;
+}
+
+.natal {
+  margin: 40px 0;
+  font-size: 26px;
+  font-weight: bold;
+  color: #b22222;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INSTRUÇÃO -->
+<div id="hint">
+  <span>Aperte aqui</span>
+  <div id="arrow">⬇</div>
+</div>
+
+<!-- CARTA FECHADA -->
+<div id="envelope">💌</div>
+
+<!-- CARTA ABERTA -->
+<div id="letter">
+  <div id="letterContent">
+
+    <div class="decoration-top">✨🎄✨</div>
+
+    <div class="phrase">
+      Meu melhor presente é você.
+    </div>
+
+    <p>
+      Você não imagina o quanto é especial pra mim.<br><br>
+
+      Em meio a tantos dias comuns,<br>
+      você virou uma pessoa muito especial pra mim<br>
+      e sempre será.<br><br>
+
+      Sempre vai existir um espaço só seu,<br>
+      guardado com carinho,<br>
+      no fundo do meu coração.<br><br>
+
+      Eu te amo.<br>
+      Ass: JP
+    </p>
+
+    <div class="decoration-bottom">🎁❄️❤️❄️🎁</div>
+
+    <div class="natal">
+      🎄 Feliz Natal 🎄
+    </div>
+
+  </div>
+</div>
+
+<script>
+const envelope = document.getElementById("envelope");
+const letter = document.getElementById("letter");
+const hint = document.getElementById("hint");
+
+envelope.onclick = () => {
+  hint.style.display = "none";
+  envelope.style.display = "none";
+  letter.style.display = "block";
+};
+</script>
+
+</body>
+  </html>  box-shadow: 0 12px 30px rgba(0,0,0,.4);
   animation: float 2s ease-in-out infinite;
 }
 
